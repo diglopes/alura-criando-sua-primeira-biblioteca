@@ -1,0 +1,24 @@
+{
+  "name": "alura-criando-sua-primeira-biblioteca",
+  "version": "0.0.1",
+  "description": "Biblioteca para checagem de links em arquivos Markdown.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diglopes/alura-criando-sua-primeira-biblioteca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diglopes/alura-criando-sua-primeira-biblioteca/issues"
+  },
+  "homepage": "https://github.com/diglopes/alura-criando-sua-primeira-biblioteca#readme",
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}
