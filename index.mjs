@@ -1,14 +1,22 @@
 import chalk from 'chalk'
-import { readFile } from 'fs'
-import { promisify } from 'util';
+import { readFile } from 'fs/promises'
 
-const readFilePromisified = promisify(readFile)
+function errorHandler(error) {
+    console.log(chalk.red("There was an error:", error.message))
+    return null
+}
 
 async function getFile(filepath) {
     const encoding = "utf-8"
-    const file = await readFilePromisified(filepath, { encoding })
-    return file
+    try {
+        const file = await readFile(filepath, { encoding })
+        return file
+    } catch (error) {
+        errorHandler(error)
+        return null
+    }
 }
 
 const filepath = "./files/text1.md"
-console.log(chalk.green(await getFile(filepath)))
+const invalidFilepath = "./files/inexistent.md"
+console.log(chalk.green(await getFile(invalidFilepath)))
