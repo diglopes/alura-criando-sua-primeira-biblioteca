@@ -14,6 +14,8 @@ async function getFile(filepath) {
     } catch (error) {
         errorHandler(error)
         return null
+    } finally {
+        console.log(chalk.yellow("Execution ended!"));
     }
 }
 
