@@ -1,13 +1,14 @@
 import chalk from 'chalk'
+import { readFile } from 'fs'
+import { promisify } from 'util';
 
-console.log(chalk.blueBright("Vamos começar!"));
+const readFilePromisified = promisify(readFile)
 
-const danger = chalk.red.bold.underline
+async function getFile(filepath) {
+    const encoding = "utf-8"
+    const file = await readFilePromisified(filepath, { encoding })
+    return file
+}
 
-console.log(`
-CPU: ${danger('90%')}
-RAM: ${chalk.green('40%')}
-DISK: ${chalk.yellow('70%')}
-`);
-
-console.log(chalk.hex("#777").bold("Hello world!"))
+const filepath = "./files/text1.md"
+console.log(chalk.green(await getFile(filepath)))
