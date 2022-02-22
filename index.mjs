@@ -17,6 +17,17 @@ async function getFile(filepath) {
     }
 }
 
+function promiseGenerator(bool) {
+    return new Promise((resolve, reject) => {
+        if(!bool) {
+            reject("Failed!")
+        }
+        resolve("success")
+    })
+}
+
+// console.log(await promiseGenerator(true))
+
 const filepath = "./files/text1.md"
 const invalidFilepath = "./files/inexistent.md"
-console.log(chalk.green(await getFile(invalidFilepath)))
+console.log(chalk.green(await getFile(filepath)))
